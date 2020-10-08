@@ -19,7 +19,7 @@ $(function() {
 
 // 获取用户信息封装函数
 // 注意，位置写到入口函数外面，后面代码中要使用这个方法但是要求这个方法是一个全局方法
-function getUserInfo() {
+function getUserInof() {
     $.ajax({
         url: '/my/userinfo',
         success: function(res) {
@@ -60,11 +60,11 @@ function renderAvator(user) {
     if (user.user_pic !== null) {
         // 有头像
         $(".layui-nav-img").show().attr("src", user.user_pic);
-        $(".user-avatar").hide();
+        $(".text-avatar").hide();
     } else {
         // 没有头像
         $(".layui-nav-img").hide();
         var text = name[0].toUpperCase();
-        $(".user-avatar").show().html(text);
+        $(".text-avatar").show().html(text);
     }
 }

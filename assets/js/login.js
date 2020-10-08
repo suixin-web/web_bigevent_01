@@ -66,20 +66,19 @@ $(function() {
         e.preventDefault();
         // 发送ajax
         $.ajax({
+            url: '/api/login',
             method: 'POST',
-            url: 'http://ajax.frontend.itheima.net/api/login',
+            // 快速获取表单中的数据
             data: $(this).serialize(),
             success: function(res) {
-                // 返回状态判断
-                if (res.status != 0) {
-                    return layer.msg(res.message);
+                if (res.status !== 0) {
+                    return layer.msg('登录失败！')
                 }
-                // 提交成功后处理代码
-                layer.msg("登陆成功!");
-                // 保存token 跳转页面
-                localStorage.setItem("token", res.token);
-                //    跳转
-                location.href = "/index.html"
+                layer.msg('登录成功！')
+                    // 将登录成功得到的 token 字符串，保存到 localStorage 中
+                localStorage.setItem('token', res.token)
+                    // 跳转到后台主页
+                location.href = '/index.html'
             }
         })
     })

@@ -59,12 +59,12 @@ function renderAvatar(user) {
     // 用户头像
     if (user.user_pic !== null) {
         // 有头像
-        $(".layui-nav-img").show().attr("src", user.user_pic);
-        $(".user-avatar").hide();
+        $(".layui-nav-img").attr("src", user.user_pic).show()
+        $(".text-avatar").hide()
     } else {
         // 没有头像
-        $(".layui-nav-img").hide();
-        var text = name[0].toUpperCase();
-        $(".user-avatar").show().html(text);
+        $('.layui-nav-img').hide()
+        var first = name[0].toUpperCase()
+        $('.text-avatar').html(first).show()
     }
 }

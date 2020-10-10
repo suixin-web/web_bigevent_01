@@ -11,3 +11,8 @@ body {
 .layui-form-item {
     width: 500px;
 }
+
+#form-add {
+    padding-top: 20px;
+    padding-right: 30px;
+}

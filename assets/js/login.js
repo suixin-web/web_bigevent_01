@@ -40,7 +40,7 @@ $(function() {
             // 发送ajax
             $.ajax({
                 method: 'POST',
-                url: 'http://ajax.frontend.itheima.net/api/reguser',
+                url: '/api/reguser',
                 data: {
                     username: $("#form_reg [name=username]").val(),
                     password: $("#form_reg [name=password]").val(),

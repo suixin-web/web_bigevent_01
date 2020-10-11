@@ -70,20 +70,20 @@ $(function() {
     }
     // 筛选功能
     $("#form-search").on("submit", function(e) {
-            e.preventDefault();
-            // 获取表单中选中项的值
-            var state = $("[name=state]").val();
-            var cate_id = $("[name=cate_id]").val();
-            // 为查询参数对象q中对应的属性赋值
-            q.state = state;
-            q.cate_id = cate_id;
-            // 根据最新的筛选条件，重新渲染表格的数据
-            initTable();
-        })
-        // 定义渲染分页的方法
+        e.preventDefault();
+        // 获取表单中选中项的值
+        var cate_id = $("[name=cate_id]").val();
+        var state = $("[name=state]").val();
+        // 为查询参数对象q中对应的属性赋值
+        q.state = state;
+        q.cate_id = cate_id;
+        // 根据最新的筛选条件，重新渲染表格的数据
+        initTable();
+    })
 
+    // 定义渲染分页的方法
     function renderPage(total) {
-        console.log(total);
+        // console.log(total);
         // 调用laypage.render（）方式来渲染分页的结构
         laypage.render({
             elem: 'pageBox', //注意，这里的 pageBox 是 ID，不用加 # 号
@@ -117,7 +117,7 @@ $(function() {
     // 删除
     $("tbody").on('click', '.btn-delete', function() {
         // 先获取Id，进入到函数中this的代指就变了
-        var Id = $(this).attr("data-id");
+        var id = $(this).attr("data-id");
         // 显示对话框
          
         layer.confirm('确认删除?', { icon: 3, title: '提示' }, function(index) {
